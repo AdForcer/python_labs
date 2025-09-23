@@ -36,4 +36,4 @@ Full_Name = Full_Name.split()
 print(f'{Full_Name[0][0]}{Full_Name[1][0]}{Full_Name[2][0]}.\nДлина (символов): {sum([len(x) for x in Full_Name])}')
 ```
 
-![Картинка 1](https://github.com/AdForcer/python_labs/tree/main/images/lab01/Task_1.png)
+![Картинка 1](./images/lab01/Task_1.png)
