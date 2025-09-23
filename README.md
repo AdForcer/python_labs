@@ -4,7 +4,6 @@ Don't look at this it's boring and not cool :L
 
 # Лабалоторная номер №1
 
-# Лабораторная
 ## Задание 1
 ```python 
 Name = input('Имя: \n')
