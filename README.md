@@ -55,3 +55,26 @@ for i in range(Amount):
 print(len([People_Involved[x][3] for x in range(Amount) if len(People_Involved[x]) == 4 if People_Involved[x][3] == 1]),len([People_Involved[x][3] for x in range(Amount) if len(People_Involved[x]) == 4 if People_Involved[x][3]==False]))
 ```
 ![Картинка 6](./images/lab01/Task_6.png)
+### Задания 7* 
+```python
+Cypher_=input()
+FirstLetterID = 0
+for Firstletter in Cypher_:
+    if Firstletter in "QWERTYUIOPASDFGHJKLZXCVBNM":
+        break
+    FirstLetterID+=1
+Cypher_=Cypher_[FirstLetterID:]
+SecondLetterID = 0 
+for SecondLetter in Cypher_:
+    if SecondLetter in "0123456789":
+        SecondLetterID += 1
+        break
+    SecondLetterID+=1
+Step = SecondLetterID
+New_String = Cypher_[0]+Cypher_[SecondLetterID]
+Cypher_=Cypher_[SecondLetterID+1:]
+for ID in range(Step-1,len(Cypher_),Step):
+    New_String+=Cypher_[ID]
+print(New_String)
+```
+![Картинка 7](./images/lab01/Task_7.png)
