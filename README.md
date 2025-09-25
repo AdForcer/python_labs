@@ -2,7 +2,7 @@
 Repo for my uni :0
 Don't look at this it's boring and not cool :L
 
-# Лабалоторная номер №1
+## Лабалоторная номер №1
 
 ### Задание 1
 ```python 
@@ -78,3 +78,4 @@ for ID in range(Step-1,len(Cypher_),Step):
 print(New_String)
 ```
 ![Картинка 7](./images/lab01/Task_7.png)
+## Лабалоторная номер № 2
