@@ -44,3 +44,17 @@ print(unique_sorted([3, 1, 2, 1, 3]))
 print(unique_sorted([]))
 print(unique_sorted([-1, -1, 0, 2, 2]))
 print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
+
+def flatten(Array):
+    New_Array = []
+    for NestedArray in Array:
+        if isinstance(NestedArray, (tuple, list)):
+            for Element in NestedArray:
+                New_Array.append(Element)
+        else: return "TypeError"
+    return New_Array
+
+print(flatten([[1, 2], [3, 4]]))
+print(flatten(([1, 2], (3, 4, 5))))
+print(flatten([[1], [], [2, 3]]))
+print(flatten([[1, 2], "ab"]))
