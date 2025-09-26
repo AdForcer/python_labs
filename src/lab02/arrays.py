@@ -39,8 +39,8 @@ def unique_sorted(Array):
             if New_Array[j] > New_Array[j+1]:
                 New_Array[j], New_Array[j+1] = New_Array[j+1], New_Array[j]
     return New_Array
+#Ради шутки не использовал set() и sort()
 print(unique_sorted([3, 1, 2, 1, 3]))
 print(unique_sorted([]))
 print(unique_sorted([-1, -1, 0, 2, 2]))
 print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
-#Ради шутки не использовал set() и sort()
