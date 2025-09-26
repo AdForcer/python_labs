@@ -1,5 +1,5 @@
 Amount = int(input(''))
-People_Involved = [input(f'Участник: {_+1}\n').split() for _ in range(Amount)]
+People_Involved = [input(f'Участник {_+1}: ').split() for _ in range(Amount)]
 for i in range(Amount):
     if len(People_Involved[i]) == 4:
         if People_Involved[i][2].isdigit(): 

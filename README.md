@@ -6,8 +6,8 @@ Don't look at this it's boring and not cool :L
 
 ### Задание 1
 ```python 
-Name = input('Имя: \n')
-Age = int(input('Возраст: \n'))
+Name = input('Имя: ')
+Age = int(input('Возраст: '))
 print(f'Привет, {Name}! Через год тебе будет {Age+1}')
 ```
 ![Картинка 1](./images/lab01/Task_1.png)
@@ -37,13 +37,13 @@ print(f'{m//60}:{(m - (m//60)*60):02d}')
 ```python
 Full_Name = input('ФИО: ')
 Full_Name = Full_Name.split()
-print(f'{Full_Name[0][0]}{Full_Name[1][0]}{Full_Name[2][0]}.\nДлина (символов): {sum([len(x) for x in Full_Name])}')
+print(f'{Full_Name[0][0]}{Full_Name[1][0]}{Full_Name[2][0]}.\nДлина (символов): {sum([len(x) for x in Full_Name])+2}')
 ```
 ![Картинка 5](./images/lab01/Task_5.png)
 ### Задание 6*
 ```python
 Amount = int(input(''))
-People_Involved = [input(f'Участник: {_+1}\n').split() for _ in range(Amount)]
+People_Involved = [input(f'Участник {_+1}: ').split() for _ in range(Amount)]
 for i in range(Amount):
     if len(People_Involved[i]) == 4:
         if People_Involved[i][2].isdigit(): 
