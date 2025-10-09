@@ -55,7 +55,7 @@ for i in range(Amount):
 print(len([People_Involved[x][3] for x in range(Amount) if len(People_Involved[x]) == 4 if People_Involved[x][3] == 1]),len([People_Involved[x][3] for x in range(Amount) if len(People_Involved[x]) == 4 if People_Involved[x][3]==False]))
 ```
 ![Картинка 6](./images/lab01/Task_6.png)
-### Задания 7* 
+### Задание 7* 
 ```python
 Cypher_=input()
 FirstLetterID = 0
@@ -79,3 +79,23 @@ print(New_String)
 ```
 ![Картинка 7](./images/lab01/Task_7.png)
 ## Лабалоторная номер № 2
+
+### Задание 1 (Arrays.py)
+#### 1. 
+```python
+def max_min(Array):
+
+    if len(Array) == 0:
+        return "ValueError"
+    
+    mmax = Array[0]
+    mmin = Array[-1]
+
+    for i in range(len(Array)):
+        if Array[i] > mmax:
+            mmax = Array[i]
+        if Array[i] < mmin:
+            mmin = Array[i]
+
+    return (mmin,mmax)
+```

@@ -71,7 +71,9 @@ print(unique_sorted([-1, -1, 0, 2, 2]))
 print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
 
 def flatten(Array):
+
     New_Array = []
+    
     for NestedArray in Array:
         if isinstance(NestedArray, (tuple, list)): #проверка на то, массив это или нет
             for Element in NestedArray:
