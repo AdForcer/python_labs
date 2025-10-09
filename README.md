@@ -80,8 +80,8 @@ print(New_String)
 ![Картинка 7](./images/lab01/Task_7.png)
 ## Лабалоторная номер № 2
 
-### Задание 1 (Arrays.py)
-#### 1. 
+### Задание 1 (arrays.py)
+#### 1. функция max_min
 ```python
 def max_min(Array):
 
@@ -98,4 +98,99 @@ def max_min(Array):
             mmin = Array[i]
 
     return (mmin,mmax)
+```
+![Картинка 8](./images/lab02/1.1.png)
+#### 2. функция unique_sorted
+```python
+def unique_sorted(Array):
+
+    if len(Array) == 0:
+        return []
+    
+    tmp_Array = []
+
+    for i in range(len(Array)):
+        tmp_Array.append([Array[i], Array.count(Array[i])]) 
+
+    New_Array = []
+
+    for i in range(len(tmp_Array)-1):
+        for j in range(len(tmp_Array)-1-i):
+            if tmp_Array[j][0] > tmp_Array[j+1][0]:
+                tmp_Array[j][0], tmp_Array[j+1][0] = tmp_Array[j+1][0], tmp_Array[j][0]
+
+    i = 0
+
+    while True:
+        skip = tmp_Array[i][1]
+        New_Array.append(tmp_Array[i][0])
+        i+=skip
+        if len(tmp_Array)<=i:
+            break
+
+    for i in range(len(New_Array)-1):
+        for j in range(len(New_Array)-1-i):
+            if New_Array[j] > New_Array[j+1]:
+                New_Array[j], New_Array[j+1] = New_Array[j+1], New_Array[j]
+
+    return New_Array
+```
+![Картинка 9](./images/lab02/1.2.png)
+#### 3. функция flatten
+```python
+def flatten(Array):
+
+    New_Array = []
+    
+    for NestedArray in Array:
+        if isinstance(NestedArray, (tuple, list)): #проверка на то, массив это или нет
+            for Element in NestedArray:
+                New_Array.append(Element) 
+        else: return "TypeError"
+
+    return New_Array
+```
+![Картинка 9](./images/lab02/1.3.png)
+
+### Задание 2 (matrix.py)
+#### Дополнительная функция для проверки прямоугольности матрицы
+```python
+def square_matrix_check(matrix: list[list[float | int]]) -> bool:
+
+    width = len(matrix[0])
+
+    for i in range(len(matrix)):
+        if len(matrix[i]) != width:
+            return 0
+    else:
+        return 1
+```
+#### 1. функция transpose
+```python
+def transpose(mat: list[list[float | int]]) -> list[list]:
+
+    if square_matrix_check(mat) == 0:
+        return "ValueError"
+    
+    return [[mat[i][j] for i in range(len(mat))] for j in range(len(mat[0]))]
+```
+![Картинка 10](./images/lab02/2.1.png)
+#### 2. функция row_sums
+```python 
+def row_sums(mat: list[list[float | int]]) -> list[float]:
+
+    if square_matrix_check(mat) == 0:
+        return "ValueError"
+    
+    return [sum(row) for row in mat]
+```
+![Картинка 11](./images/lab02/2.2.png)
+#### 3. функция
+```python
+def col_sums(mat: list[list[float | int]]) -> list[float]:
+
+    if square_matrix_check(mat) == 0:
+        return "ValueError"
+    
+    return [sum(mat[i][j] for i in range(len(mat))) for j in range(len(mat[0]))]
 ```
