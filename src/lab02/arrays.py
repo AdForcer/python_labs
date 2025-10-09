@@ -15,6 +15,7 @@ def max_min(Array):
     return (mmin,mmax)
 
 #проверки
+print('Проверка max_min')
 print(max_min([3, -1, 5, 5, 0]))
 print(max_min([42]))
 print(max_min([-5, -2, -9]))
@@ -63,6 +64,7 @@ def unique_sorted(Array):
     return New_Array
 
 #проверки
+print('\nПроверки unique_sorted')
 print(unique_sorted([3, 1, 2, 1, 3]))
 print(unique_sorted([]))
 print(unique_sorted([-1, -1, 0, 2, 2]))
@@ -70,7 +72,6 @@ print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
 
 def flatten(Array):
     New_Array = []
-
     for NestedArray in Array:
         if isinstance(NestedArray, (tuple, list)): #проверка на то, массив это или нет
             for Element in NestedArray:
@@ -84,6 +85,7 @@ def flatten(Array):
     return New_Array
 
 #проверки
+print('\nПроверки flatten')
 print(flatten([[1, 2], [3, 4]]))
 print(flatten(([1, 2], (3, 4, 5))))
 print(flatten([[1], [], [2, 3]]))
