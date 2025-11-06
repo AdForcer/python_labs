@@ -1,64 +1,46 @@
-import json
+# src/lib/io_helpers.py
 import csv
 from pathlib import Path
-
-def read_json(file_path: str) -> list:
-
-    #Читает JSON файл и возвращает данные
-
-    path = Path(file_path)
-    
-    if not path.exists():
-        raise FileNotFoundError(f"Файл {file_path} не найден")
-    
-    if path.suffix.lower() != '.json':
-        raise ValueError(f"Неверный тип файла: ожидается .json, получен {path.suffix}")
-    
-    with path.open('r', encoding='utf-8') as f:
-        data = json.load(f)
-    
-    if not data:
-        raise ValueError("Пустой JSON или неподдерживаемая структура")
-    
-    if not isinstance(data, list):
-        raise ValueError("JSON должен содержать список")
-    
-    if data and not all(isinstance(item, dict) for item in data):
-        raise ValueError("Все элементы JSON должны быть словарями")
-    
-    return data
+from typing import Iterable, Sequence, Union
 
 
-def read_csv(file_path: str) -> tuple[list, list]:
+def read_text(path: Union[str, Path], encoding: str = "utf-8") -> str:
+    #Читает текстовый файл и возвращает его содержимое
+    p = Path(path)
+    return p.read_text(encoding=encoding)
 
-    #Читает CSV файл и возвращает заголовки и данные
 
-    path = Path(file_path)
+def write_text(path: Union[str, Path], content: str, encoding: str = "utf-8") -> None:
+    #Записывает текст в файл 
+    p = Path(path)
+    ensure_parent_dir(p)
+    p.write_text(content, encoding=encoding)
+
+
+def write_csv(rows: Iterable[Sequence], path: Union[str, Path], 
+              header: tuple[str, ...] = None) -> None:
+    #Записывает данные в CSV файл
+    p = Path(path)
+    rows_list = list(rows)
     
-    if not path.exists():
-        raise FileNotFoundError(f"Файл {file_path} не найден")
+    #Проверка согласованности длин строк
+    if rows_list:
+        first_len = len(rows_list[0])
+        for i, row in enumerate(rows_list):
+            if len(row) != first_len:
+                raise ValueError(f"Строка {i} имеет длину {len(row)}, ожидалось {first_len}")
     
-    if path.suffix.lower() != '.csv':
-        raise ValueError(f"Неверный тип файла: ожидается .csv, получен {path.suffix}")
+    #Создание родительских директорий
+    ensure_parent_dir(p)
     
-    with path.open('r', encoding='utf-8') as f:
-        # Автоопределение разделителя
-        sample = f.read(1024)
-        f.seek(0)
-        
-        sniffer = csv.Sniffer()
-        dialect = sniffer.sniff(sample)
-        
-        reader = csv.reader(f, dialect)
-        rows = list(reader)
-    
-    if not rows:
-        raise ValueError("Пустой CSV файл")
-    
-    headers = rows[0]
-    data = rows[1:]
-    
-    if not headers:
-        raise ValueError("CSV файл не содержит заголовков")
-    
-    return headers, data
+    with p.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        if header is not None:
+            writer.writerow(header)
+        writer.writerows(rows_list)
+
+
+def ensure_parent_dir(path: Union[str, Path]) -> None:
+    #Создает родительские директории, если их нет
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)

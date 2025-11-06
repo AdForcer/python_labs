@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Alice",
+    "age": 22,
+    "city": "SPB",
+    "email": "alice@example.com"
+  },
+  {
+    "name": "Bob",
+    "age": 25,
+    "city": "Moscow",
+    "phone": "+123456789"
+  },
+  {
+    "name": "Charlie",
+    "age": 30,
+    "city": "SPB",
+    "email": "charlie@test.com",
+    "phone": "+987654321"
+  }
+]

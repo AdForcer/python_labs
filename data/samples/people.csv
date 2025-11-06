@@ -1,0 +1,4 @@
+name,age,city,email,phone
+Alice,22,SPB,alice@example.com,
+Bob,25,Moscow,,+123456789
+Charlie,30,SPB,charlie@test.com,+987654321
