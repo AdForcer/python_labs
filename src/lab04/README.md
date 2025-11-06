@@ -1,13 +1,13 @@
 # Лабараторная №3
 ## text_report.py
-команда для вызова: 
-python src/lab04/text_report.py data/lab04/a.txt data/lab04/report.csv
-Либо же, можно просто вызвать python src/lab04/text_report.py, в таком случае будут считан файл по умолчанию
+    команда для вызова: 
+        python src/lab04/text_report.py data/lab04/a.txt data/lab04/report.csv
+        Либо же, можно просто вызвать python src/lab04/text_report.py, в таком случае будут считан файл по умолчанию
 ![Картинка 1](../../images/lab04/1.1.png)
 ![Картинка 2](../../images/lab04/1.2.png)
 ![Картинка 3](../../images/lab04/1.3.png)
 ## Кодировки
-По умолчанию: UTF-8
+    По умолчанию: UTF-8
 ## Политика обработки пустых файлов
     CSV отчет: содержит только заголовок word,count
     Консольный вывод:
