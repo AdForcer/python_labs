@@ -363,24 +363,24 @@ if __name__ == "__main__":
 ### 1. Вывод файла без нумерации
     python -m src.lab06.cli_text cat "--input" "data/samples/people.csv"
 
-    ![Картинка 7](../../images/lab06/2.1.png)
+![Картинка 7](../../images/lab06/2.1.png)
 
 ### 2. Вывод файла с нумерацией строк
     python -m src.lab06.cli_text cat "--input" "data/samples/people.csv" "-n"
 
-    ![Картинка 8](../../images/lab06/2.2.png)
+![Картинка 8](../../images/lab06/2.2.png)
 
 ### 3. Анализ частот слов (топ-5 по умолчанию)
     python -m src.lab06.cli_text stats "--input" "data/samples/example.txt"
 
-    ![Картинка 9](../../images/lab06/2.3.png)
+![Картинка 9](../../images/lab06/2.3.png)
 
 ### 4. Анализ частот слов (топ-3)
     python -m src.lab06.cli_text stats "--input" "data/samples/example.txt" "--top" "3"
 
-    ![Картинка 10](../../images/lab06/2.4.png)
+![Картинка 10](../../images/lab06/2.4.png)
 
 ### 5. Анализ частот слов (топ-10)
     python -m src.lab06.cli_text stats "--input" "data/samples/example.txt" "--top" "10"
 
-    ![Картинка 11](../../images/lab06/2.5.png)
+![Картинка 11](../../images/lab06/2.5.png)
