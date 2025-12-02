@@ -389,3 +389,75 @@ if __name__ == "__main__":
     python -m src.lab06.cli_text stats "--input" "data/samples/example.txt" "--top" "10"
 
 ![Картинка 11](../../images/lab06/2.5.png)
+
+
+
+
+## Конвертации 
+### 1. Конвертация JSON → CSV (people.json)
+
+    python -m src.lab06.cli_convert json2csv "--in" "data/samples/people.json" "--out" "data/out/lab6_people.csv"
+
+![Картинка 12](../../images/lab06/3.1.png)
+
+### 2. Конвертация CSV → JSON (people.csv)
+
+    python -m src.lab06.cli_convert csv2json "--in" "data/samples/people.csv" "--out" "data/out/lab6_people.json"
+
+![Картинка 13](../../images/lab06/3.2.png)
+
+### 3. Конвертация CSV → XLSX (people.csv)
+
+    python -m src.lab06.cli_convert csv2xlsx "--in" "data/samples/people.csv" "--out" "data/out/lab6_people.xlsx"
+
+![Картинка 14](../../images/lab06/3.3.png)
+
+### 4. Конвертация CSV → XLSX (cities.csv)
+
+    python -m src.lab06.cli_convert csv2xlsx "--in" "data/samples/cities.csv" "--out" "data/out/lab6_cities.xlsx"
+
+![Картинка 15](../../images/lab06/3.4.png)
+
+### 5. Конвертация JSON → CSV (другой выходной файл)
+
+    python -m src.lab06.cli_convert json2csv "--in" "data/samples/people.json" "--out" "data/out/test_output.csv"
+
+![Картинка 16](../../images/lab06/3.5.png)
+
+### 6. Конвертация CSV → JSON (другой выходной файл)
+
+    python -m src.lab06.cli_convert csv2json "--in" "data/samples/cities.csv" "--out" "data/out/test_cities.json"
+
+![Картинка 17](../../images/lab06/3.6.png)
+
+## Ошибки
+
+### 1. Проверка ошибки: несуществующий файл (cli_text)
+
+    python -m src.lab06.cli_text cat "--input" "data/samples/not_exist.txt"
+
+![Картинка 18](../../images/lab06/4.1.png)
+
+### 2. Проверка ошибки: несуществующий файл (cli_convert)
+
+    python -m src.lab06.cli_convert json2csv "--in" "data/samples/not_exist.json" "--out" "data/out/test.csv"
+
+![Картинка 19](../../images/lab06/4.2.png)
+
+### 3. Проверка ошибки: отсутствует обязательный аргумент
+
+    python -m src.lab06.cli_text cat
+
+![Картинка 20](../../images/lab06/4.3.png)
+
+### 4. Проверка ошибки: неизвестная команда
+
+    python -m src.lab06.cli_text unknown_command
+
+![Картинка 21](../../images/lab06/4.4.png)
+
+### 5. Проверка ошибки: неправильный тип аргумента
+
+    python -m src.lab06.cli_text stats "--input" "data/samples/example.txt" "--top" "not_a_number"
+
+![Картинка 22](../../images/lab06/4.5.png)
