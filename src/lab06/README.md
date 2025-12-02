@@ -332,16 +332,28 @@ if __name__ == "__main__":
 ```
 ## Демонстрация работы --help
     python -m src.lab06.cli_text --help
+    
 ![Картинка 1](../../images/lab06/1.1.png)
+
     python -m src.lab06.cli_text cat --help
+
 ![Картинка 2](../../images/lab06/1.2.png)
+
     python -m src.lab06.cli_text stats --help
+
 ![Картинка 3](../../images/lab06/1.3.png)
+
     python -m src.lab06.cli_convert --help
+
 ![Картинка 4](../../images/lab06/1.4.png)
+
     python -m src.lab06.cli_convert json2csv --help
+
 ![Картинка 5](../../images/lab06/1.5.png)
+
     python -m src.lab06.cli_convert csv2json --help
 ![Картинка 5](../../images/lab06/1.6.png)
+
     python -m src.lab06.cli_convert csv2xlsx --help
+
 ![Картинка 6](../../images/lab06/1.7.png)
