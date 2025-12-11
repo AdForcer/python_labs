@@ -392,4 +392,6 @@ class TestIntegration:
     pytest tests/test_json_csv.py -v
 
 ![Картинка 4](../../images/lab07/2.2.png)
+
+
     
