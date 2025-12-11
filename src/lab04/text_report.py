@@ -24,34 +24,36 @@ def sorted_word_counts(freq: dict[str, int]) -> list[tuple[str, int]]:
     return sorted(freq.items(), key=lambda kv: (-kv[1], kv[0]))
 
 
-def generate_report(input_file: str = "data/lab04/input.txt", 
-                   output_file: str = "data/lab04/report.csv",
-                   encoding: str = "utf-8") -> None:
-    
+def generate_report(
+    input_file: str = "data/lab04/input.txt",
+    output_file: str = "data/lab04/report.csv",
+    encoding: str = "utf-8",
+) -> None:
+
     try:
         # Чтение входного файла
         text = read_text(input_file, encoding=encoding)
-        
+
         # Анализ текста
         freq = frequencies_from_text(text)
         sorted_counts = sorted_word_counts(freq)
         top_words = top_n(freq, 5)
-        
+
         # Вывод статистики в консоль
         total_words = sum(freq.values())
         unique_words = len(freq)
-        
+
         print(f"Всего слов: {total_words}")
         print(f"Уникальных слов: {unique_words}")
         print("Топ-5:")
         for word, count in top_words:
             print(f"  {word}: {count}")
-        
+
         # Сохранение отчёта в CSV
         header = ("word", "count")
         write_csv(sorted_counts, output_file, header=header)
         print(f"\nОтчёт сохранён в: {output_file}")
-        
+
     except FileNotFoundError:
         print(f"Ошибка: Файл '{input_file}' не найден.")
         sys.exit(1)
